@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Lichttechnik</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = start(0)">
+Normal</button>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = startZufallTon(0)">
+zufall</button>
+
+<p id="demo"></p>
+<script>
+var aa = [
+ a1 = new Audio('a.mp3'),
+ a2 = new Audio('b.mp3'),
+ a3 = new Audio('c.mp3'),
+ a4 = new Audio('d.mp3'),
+ a5 = new Audio('e.mp3'),
+ a6 = new Audio('f.mp3'),
+ a7 = new Audio('g.mp3'),
+ a8 = new Audio('h.mp3'),
+ a9 = new Audio('i.mp3'),
+ a10 = new Audio('j.mp3'),
+ a11 = new Audio('k.mp3'),
+ a12 = new Audio('l.mp3'),
+ a13 = new Audio('m.mp3'),
+ a14 = new Audio('n.mp3'),
+ a15 = new Audio('o.mp3'),
+ a16 = new Audio('p.mp3'),
+ a17 = new Audio('q.mp3'),
+ a18 = new Audio('r.mp3'),
+ a19 = new Audio('s.mp3'),
+ a20 = new Audio('t.mp3'),
+ a21 = new Audio('u.mp3'),
+ a22 = new Audio('v.mp3'),
+ a23 = new Audio('w.mp3'),
+ a24 = new Audio('x.mp3'),
+ a25 = new Audio('y.mp3'),
+ a26 = new Audio('z.mp3'),
+ 
+]; 
+
+
+
+function start(counter){
+  if(counter < 26){
+    setTimeout(function(){
+	aa[counter].play();
+      counter++;
+      
+      start(counter);
+    }, 1300);
+  }
+}
+
+
+/*var randomAnswer = aa[Math.floor(aa.length * Math.random())];
+function zufall(){
+var randomAnswer = aa[Math.floor(aa.length * Math.random())];
+console.log(randomAnswer);
+}
+;*/
+zahlen = [1,2,3,4,5,6]
+var randomAnswer2 = zahlen[Math.floor(zahlen.length * Math.random())];
+//console.log(randomAnswer2);
+
+i=0;
+
+function startZufall(counter){
+	if(counter < 6){
+ 
+		setTimeout(function(){
+			if(zahlen[counter]==randomAnswer2){
+			i++
+			console.log("zufall:"+randomAnswer2);
+			a=zahlen[counter];
+			console.log("a"+a);
+			console.log("i"+i);
+				if(i<2){
+				 counter=counter-1;
+				 counter++;
+				 startZufall(counter);			 
+				}
+				else {
+				counter++
+				startZufall(counter);
+				}
+		
+		
+		
+			}
+			else {
+			console.log(zahlen[counter]);
+			counter++;
+		  
+			startZufall(counter);
+			}
+		} , 1000);
+	}
+}
+
+function startZufallTon(counter){
+	if(counter < 6){
+ 
+		setTimeout(function(){
+			if(zahlen[counter]==randomAnswer2){
+			i++
+			
+			console.log("zufall:"+randomAnswer2);
+			a=zahlen[counter];
+			console.log("a"+a);
+			console.log("i"+i);
+			aa[counter].play();
+			
+				if(i<2){
+				
+				 counter=counter-1;
+				 counter++;
+				// aa[counter].play();
+				
+				 startZufallTon(counter);
+				}
+				else {
+				aa[counter-1].play();
+				counter++
+				
+				
+				startZufallTon(counter);
+				
+				}
+		
+			}
+			else {
+			aa[counter].play();
+			counter++;
+		  
+			startZufallTon(counter);
+			}
+		} , 1000);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function timeout(){
+    setInterval(function(){}, 3000);
+    };
+
+function myFunction() {
+for (var i=0;i<=10;i++) {
+aa[i].play();
+
+};
+/*for (var i=0;i<=10;i++) {
+   (function(a) {
+       setTimeout(function(){console.log((a + 1)*1000, ':', a);}, 1000 * (a+1) );
+   })(i);*/
+}
+	
+	
+
+
+
+
+</script>
+
+</body>
+</html> 
